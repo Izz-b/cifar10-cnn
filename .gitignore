@@ -1,0 +1,30 @@
+# Ignore Python bytecode
+__pycache__/
+
+# Ignore saved model files
+*.pth
+
+# Ignore data directories (e.g., for datasets)
+data/
+
+# Ignore virtual environment directories (if any)
+venv/
+env/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore log files
+*.log
+
+# Ignore other IDE/project files (optional, depending on the IDE you're using)
+.vscode/
+.idea/
+
+# Ignore all files ending in .bak (backup files)
+*.bak
+
+# Ignore files related to operating system (Mac, Windows)
+.DS_Store      # macOS Finder file
+Thumbs.db      # Windows thumbnail cache
+
