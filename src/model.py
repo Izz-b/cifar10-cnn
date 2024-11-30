@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
-
-def __init__(self):
+class CNN(nn.Module):
+    def __init__(self):
         super(CNN, self).__init__()
         # nn.conv2d(input channels(RGB), nb of Kernels, Kernel size(3x3), padding to resize the output image)
         self.conv1 = nn.Conv2d(3, 32, kernel_size=3, padding=1)  # Convolution 1
@@ -13,7 +13,7 @@ def __init__(self):
         self.fc1 = nn.Linear(64 * 8 * 8, 128)  # Fully connected 1
         self.fc2 = nn.Linear(128, 10)  # Fully connected 2 (10 classes)
 
-def forward(self, x):
+    def forward(self, x):
         # ReLU is an activation function that introduces non-linearity into the network
         x = F.relu(self.conv1(x))
         x = self.pool(x)
