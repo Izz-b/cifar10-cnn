@@ -96,9 +96,24 @@ def train_and_evaluate_model(model, device):
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 # Calculate the test accuracy as the ratio of correct predictions to total samples, and print it
-    print(f"Test Accuracy: {100 * correct / total:.2f}%")
+    print(f"Test Accuracy after training the model: {100 * correct / total:.2f}%")
 
-                 #****SAVING AND LOADING THE MODEL****
+                 #****TESTING****
+
+    correct = 0
+    total = 0
+
+    with torch.no_grad():
+        for data in test_loader:
+            images, labels = data
+            outputs = model(images)
+            _, predicted = torch.max(outputs, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+
+    print(f' Test Accuracy of the model on the 10000 test images: {100 * correct / total}%')
+
+             #****SAVING AND LOADING THE MODEL****
     #saving the model's state dictionary as opposed to the whole model is better since it's more lightweight 
     torch.save(model.state_dict(), 'cnn_cifar10.pth')
     model = CNN()  # Initialize the model again
